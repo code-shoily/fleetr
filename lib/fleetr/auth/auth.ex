@@ -35,6 +35,6 @@ defmodule Fleetr.Auth do
   def create_user(%{email: _email, password: _password} = params) do
     %User{}
     |> User.changeset(params)
-    |> Repo.insert()
+    |> PaperTrail.insert()
   end
 end

@@ -48,7 +48,8 @@ defmodule Fleetr.MixProject do
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:comeonin, "~> 5.3.0"},
       {:guardian, "~> 2.1.0"},
-      {:argon2_elixir, "~> 2.3"}
+      {:argon2_elixir, "~> 2.3"},
+      {:paper_trail, "~> 0.8.7"}
     ]
   end
 
