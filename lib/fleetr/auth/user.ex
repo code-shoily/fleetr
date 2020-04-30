@@ -14,7 +14,7 @@ defmodule Fleetr.Auth.User do
   end
 
   @fields ~w/email password/a
-  def registration_changeset(%__MODULE__{} = user, params) do
+  def registration_changeset(%__MODULE__{} = user, params \\ %{}) do
     user
     |> cast(params, @fields)
     |> validate_required(@fields)

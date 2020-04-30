@@ -14,7 +14,9 @@ defmodule Fleetr.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Fleetr.PubSub},
       # Start the Endpoint (http/https)
-      FleetrWeb.Endpoint
+      FleetrWeb.Endpoint,
+      # Nebulex Cache
+      {Fleetr.Cache, []},
       # Start a worker by calling: Fleetr.Worker.start_link(arg)
       # {Fleetr.Worker, arg}
     ]
