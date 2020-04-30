@@ -49,7 +49,8 @@ defmodule Fleetr.MixProject do
       {:comeonin, "~> 5.3.0"},
       {:guardian, "~> 2.1.0"},
       {:argon2_elixir, "~> 2.3"},
-      {:paper_trail, "~> 0.8.7"}
+      {:paper_trail, "~> 0.8.7"},
+      {:floki, "~> 0.26.0", only: :test}
     ]
   end
 
