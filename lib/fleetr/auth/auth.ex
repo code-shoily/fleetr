@@ -32,9 +32,9 @@ defmodule Fleetr.Auth do
   Creates a user
   """
   @spec create_user(map()) :: {:ok, user()} | {:error, Ecto.Changeset.t()}
-  def create_user(%{email: _email, password: _password} = params) do
+  def create_user(attrs \\ %{}) do
     %User{}
-    |> User.registration_changeset(params)
+    |> User.registration_changeset(attrs)
     |> PaperTrail.insert()
   end
 end
