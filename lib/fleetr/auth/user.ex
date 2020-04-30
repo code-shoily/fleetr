@@ -6,7 +6,6 @@ defmodule Fleetr.Auth.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :name, :string
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
@@ -14,7 +13,7 @@ defmodule Fleetr.Auth.User do
     timestamps()
   end
 
-  @fields ~w/name email password/a
+  @fields ~w/email password/a
   def registration_changeset(%__MODULE__{} = user, params) do
     user
     |> cast(params, @fields)
