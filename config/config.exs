@@ -7,6 +7,10 @@
 # General application configuration
 use Mix.Config
 
+config :fleetr, Fleetr.Cache,
+  gc_interval: 86_400 # 24 hrs
+
+
 config :fleetr,
   ecto_repos: [Fleetr.Repo]
 

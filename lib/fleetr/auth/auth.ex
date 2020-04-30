@@ -12,8 +12,23 @@ defmodule Fleetr.Auth do
   @doc """
   Returns password verified user
   """
-  @spec authenticated_user(email, password) :: {:ok, user()}
-  def authenticated_user(email, password) do
+  @spec authenticate(map()) :: {:ok, user()} | {:error, any()}
+  def authenticate(params \\ %{}) do
+    changeset = User.login_changeset(%User{}, params)
+
+    with %{valid?: true, changes: changes} <- changeset,
+         {:ok, user} <- check_password(changes.email, changes.password) do
+      {:ok, user}
+    else
+      %Ecto.Changeset{} = changeset ->
+        {:error, changeset}
+
+      {:error, _} ->
+        {:error, Ecto.Changeset.add_error(changeset, :base, "Invalid Login")}
+    end
+  end
+
+  defp check_password(email, password) do
     User
     |> where([u], u.email == ^email)
     |> Repo.one()

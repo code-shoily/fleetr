@@ -17,7 +17,11 @@ defmodule FleetrWeb.Router do
   scope "/", FleetrWeb do
     pipe_through :browser
 
-    live "/", HomeLive, :index
+    post "/", SessionController, :create
+    get "/logout", SessionController, :destroy
+    live "/", HomeLive
+    live "/login", Auth.LoginLive
+    live "/registration", Auth.RegistrationLive
   end
 
   # Other scopes may use custom stacks.
