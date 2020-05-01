@@ -1,15 +1,22 @@
-<main role="main" class="container is-fluid" style="padding-top: 10px">
+<%= live_component @socket, FleetrWeb.Common.NavbarComponent, id: "navbar", user_id: @user_id %>
+<main role="main">
   <%= if live_flash(@flash, :info) do %>
-    <div class="notification is-info is-light" role="alert" phx-value-key="error">
-      <button class="delete" phx-click="lv:clear-flash"></button>
-      <%= live_flash(@flash, :info) %>
+    <div class="notification is-info is-radiusless" role="alert" phx-value-key="info" phx-click="lv:clear-flash">
+      <div class="has-text-centered">
+        <span class="title is-6"><%= live_flash(@flash, :info) %></span>
+      </div>
     </div>
   <% end %>
   <%= if live_flash(@flash, :error) do %>
-    <div class="notification is-danger is-light" role="alert" phx-value-key="error">
-      <button class="delete" phx-click="lv:clear-flash"></button>
-      <%= live_flash(@flash, :error) %>
+    <div class="notification is-danger is-radiusless" role="alert" phx-value-key="error" phx-click="lv:clear-flash">
+      <div class="has-text-centered">
+        <span class="title is-6"><%= live_flash(@flash, :error) %></span>
+      </div>
     </div>
   <% end %>
-  <%= @inner_content %>
+  <section class="section">
+    <div class="container is-fluid">
+      <%= @inner_content %>
+    </div>
+  </section>
 </main>

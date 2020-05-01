@@ -1,14 +1,14 @@
 <%= if live_flash(@flash, :info) do %>
   <div class="notification is-info is-radiusless" role="alert" phx-value-key="info" phx-click="lv:clear-flash">
     <div class="has-text-centered">
-      <span class="title is-5"><%= live_flash(@flash, :info) %></span>
+      <span class="title is-6"><%= live_flash(@flash, :info) %></span>
     </div>
   </div>
 <% end %>
 <%= if live_flash(@flash, :error) do %>
   <div class="notification is-danger is-radiusless" role="alert" phx-value-key="error" phx-click="lv:clear-flash">
     <div class="has-text-centered">
-      <span class="title is-5"><%= live_flash(@flash, :error) %></span>
+      <span class="title is-6"><%= live_flash(@flash, :error) %></span>
     </div>
   </div>
 <% end %>
