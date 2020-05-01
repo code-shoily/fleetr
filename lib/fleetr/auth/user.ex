@@ -51,7 +51,7 @@ defmodule Fleetr.Auth.User do
     |> put_change(:password_hash, Argon2.hash_pwd_salt(password))
   end
 
-  defp put_password_hash(changeset), do: changeset |> IO.inspect(label: :changeset)
+  defp put_password_hash(changeset), do: changeset
 
   defp validate_password_confirmation(%{changes: changes} = changeset) do
     if changes[:password] == changes[:password_confirmation] do

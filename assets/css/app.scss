@@ -1,6 +1,7 @@
 /* This file is for your main application css. */
 @import "theme";
 @import "bulma";
+@import "../node_modules/bulma-extensions/dist/css/bulma-extensions.min.css";
 @import "../node_modules/animate.css/animate.css";
 @import "../node_modules/nprogress/nprogress.css";
 

@@ -2,7 +2,7 @@ let Hooks = {}
 Hooks.SessionHook = {
     mounted() {
         let form = this.el;
-        form.submit()
+        form.submit();
     }
 }
 
