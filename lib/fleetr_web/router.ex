@@ -25,9 +25,10 @@ defmodule FleetrWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", FleetrWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", FleetrWeb do
+    pipe_through :api
+    resources "/locations", LocationController, only: [:index, :create]
+  end
 
   # Enables LiveDashboard only for development
   #

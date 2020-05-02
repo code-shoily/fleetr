@@ -4,6 +4,5 @@ defmodule Fleetr.Repo do
     adapter: Ecto.Adapters.Postgres
 
   Postgrex.Types.define(Fleetr.PostgresTypes,
-    [Geo.PostGIS.Extension] ++ Ecto.Adapters.Postgres.extensions(),
-    json: Poison)
+    [Geo.PostGIS.Extension] ++ Ecto.Adapters.Postgres.extensions(), json: Jason)
 end
