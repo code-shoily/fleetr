@@ -36,6 +36,10 @@ config :paper_trail,
   item_type: Ecto.UUID,
   originator_type: Ecto.UUID
 
+# config.exs
+config :geo_postgis,
+  json_library: Jason
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

@@ -51,7 +51,8 @@ defmodule Fleetr.MixProject do
       {:argon2_elixir, "~> 2.3"},
       {:paper_trail, "~> 0.8.7"},
       {:floki, "~> 0.26.0", only: :test},
-      {:nebulex, "~> 1.2.0"}
+      {:nebulex, "~> 1.2.0"},
+      {:geo_postgis, "~> 3.1"}
     ]
   end
 
