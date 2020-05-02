@@ -14,9 +14,12 @@
       </div>
     </div>
   <% end %>
-  <section class="section">
-    <div class="container is-fluid">
-      <%= @inner_content %>
+  <div class="container is-fluid top-level">
+    <%= @inner_content %>
+  </div>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      Copyright &copy; <strong>Fleetr</strong> <%= Date.utc_today().year %> Mafinar Khan
     </div>
-  </section>
+  </footer>
 </main>
