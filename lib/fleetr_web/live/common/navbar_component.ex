@@ -50,8 +50,8 @@ defmodule FleetrWeb.Common.NavbarComponent do
               Change Password
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item has-text-danger" href="/sign-out">
-              Sign-out
+            <a class="navbar-item has-text-danger" href="/logout">
+              Logout
             </a>
           </div>
         </div>
