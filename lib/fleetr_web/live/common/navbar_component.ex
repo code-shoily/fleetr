@@ -3,9 +3,8 @@ defmodule FleetrWeb.Common.NavbarComponent do
 
   use FleetrWeb, :live_component
 
-  def update(assigns, socket) do
-    user = Auth.user_by_id(assigns.user_id)
-
+  def update(%{user_id: user_id}, socket) do
+    user = (user_id && Auth.user_by_id(user_id)) || nil
     {:ok, assign(socket, user: user)}
   end
 
@@ -20,6 +19,9 @@ defmodule FleetrWeb.Common.NavbarComponent do
   end
 
   defp user_id(socket), do: socket.assigns.user["user_id"]
+
+  defp pretty_print(%{email: email}), do: email
+  defp pretty_print(_), do: ""
 
   def render(assigns) do
     ~L"""
@@ -40,7 +42,7 @@ defmodule FleetrWeb.Common.NavbarComponent do
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-item has-text-white navbar-link">
-            <%= @user.email %>
+            <%= pretty_print(@user) %>
           </a>
           <div class="navbar-dropdown is-right">
             <a class="navbar-item" href="#" phx-click="user-update" phx-target="<%= @myself %>">

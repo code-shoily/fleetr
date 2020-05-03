@@ -6,23 +6,24 @@ defmodule FleetrWeb.HomeLive do
 
   use FleetrWeb, :live_view
 
-  def mount(_params, %{"token" => nil}, socket) do
-    send(self(), :unauthorized)
-    {:ok, socket}
-  end
+  def mount(_params, session, socket) do
+    socket = assign(socket, :user_id, nil)
 
-  def mount(_params, %{"token" => token}, socket) do
-    case TokenCache.get(token) do
-      nil ->
+    case session do
+      %{"token" => nil} ->
         send(self(), :unauthorized)
         {:ok, socket}
-      user_id -> {:ok, assign(socket, user_id: user_id)}
+      %{"token" => token} ->
+        case TokenCache.get(token) do
+          nil ->
+            send(self(), :unauthorized)
+            {:ok, socket}
+          user_id -> {:ok, assign(socket, user_id: user_id)}
+        end
+      _ ->
+        send(self(), :unauthorized)
+        {:ok, socket}
     end
-  end
-
-  def mount(_params, _session, socket) do
-    send(self(), :unauthorized)
-    {:ok, socket}
   end
 
   def handle_info(:unauthorized, socket) do

@@ -27,6 +27,7 @@ defmodule FleetrWeb.LocationController do
       },
       "name": "CN Tower"
     }
+EOF
   """
   def create(conn, params) do
     params
